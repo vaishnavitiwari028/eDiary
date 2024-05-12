@@ -1,0 +1,487 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+:root {
+  font-size: 10px;
+  --clr-primary: #00bfa6;
+  --clr-primary-light: #4ed4c2;
+  --clr-text: #2f2e41;
+  --clr-text-light: #474662;
+  --clr-page: #fffec3;
+  --clr-white: #fff;
+}
+body {
+  font-family: "Lato", sans-serif;
+  font-size: 1.5rem;
+  color: var(--clr-text);
+}
+.notification_modal {
+  --clr-good: #00ff7f;
+  --clr-bad: rgb(255, 80, 80);
+  --clr-neutral: rgb(255, 255, 93);
+  --clr-notification: #00ff7f;
+  position: absolute;
+  background-color: var(--clr-notification);
+  width: 100%;
+  font-size: 2rem;
+  padding: 0.5em;
+  text-align: center;
+  top: -50px;
+  animation-duration: 3s;
+  z-index: 1000;
+}
+.notify_state {
+  animation: notification 5s ease forwards;
+}
+@keyframes notification {
+  10%,
+  90% {
+    transform: translateY(50px);
+  }
+  100% {
+    transform: none;
+  }
+}
+/* utility */
+.global_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#full_screen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+}
+.start_animate::after {
+  content: "";
+  position: absolute;
+  width: 1vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: var(--clr-primary);
+  transform-origin: left;
+  animation: startingAnimation 0.5s ease-in-out forwards;
+  z-index: 1000;
+}
+.start_animate_left::after {
+  content: "";
+  position: absolute;
+  width: 1vw;
+  height: 100vh;
+  top: 0;
+  right: 0;
+  background-color: var(--clr-primary);
+  transform-origin: right;
+  animation: startingAnimation 0.5s ease-in-out forwards;
+  z-index: 1000;
+}
+@keyframes startingAnimation {
+  0% {
+    transform: scaleX(100);
+    opacity: 1;
+  }
+  99% {
+    opacity: 1;
+  }
+  100% {
+    transform: none;
+    opacity: 0;
+  }
+}
+.full_screen {
+  width: 100vw;
+  height: 100vh;
+}
+.btn {
+  background-color: var(--clr-primary);
+  border-radius: 1em;
+  border: none;
+  padding: 0.5em 1em;
+  margin: 0.5em auto;
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 700;
+  transition: 0.3s ease;
+  color: var(--clr-text);
+  cursor: pointer;
+}
+.btn:hover {
+  background-color: var(--clr-primary-light);
+}
+.btn_loading {
+  pointer-events: none;
+  position: relative;
+}
+.btn_loading::after {
+  content: "Loading..";
+  position: absolute;
+  background-color: var(--clr-primary-light);
+  top: 0;
+  left: 0;
+  width: calc(100% - 1em);
+  border-radius: 1em;
+  text-align: center;
+  padding: 0.5em;
+}
+.btn_secondary {
+  background-color: white;
+  font-size: 1.3rem;
+  border-radius: 0;
+  border: 3px solid var(--clr-primary);
+}
+.btn-sm {
+  border: 1px solid grey;
+  box-shadow: 2px 2px 2px grey;
+  cursor: pointer;
+  display: block;
+  margin: auto;
+  padding: 0.2em 0.5em;
+  height: 30px;
+  border-radius: 50%;
+  transition: 0.2s ease;
+}
+.btn-sm:hover {
+  background-color: var(--clr-primary-light);
+}
+/* utility end */
+.form_container {
+  width: 60%;
+  max-width: 400px;
+  font-size: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+.auth_title_container {
+  text-align: center;
+  font-size: 2rem;
+}
+.auth_title_container::after {
+  content: "";
+  height: 3px;
+  background-color: var(--clr-primary);
+  width: 100px;
+  display: block;
+  margin: 3px auto;
+}
+label,
+input {
+  font-size: 1.6rem;
+  padding: 0.4em;
+}
+.auth_page_container svg {
+  position: absolute;
+  right: 0;
+  z-index: -1;
+}
+.gender_input_container {
+  margin: 1rem 0;
+}
+
+.gender_input_options_container {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+}
+
+.gender_input_field {
+  padding: 0 0.1em;
+  margin-left: auto;
+  flex: 1;
+}
+.forgot_password {
+  text-align: end;
+}
+
+.have_account {
+  text-align: center;
+}
+.no_break {
+  white-space: nowrap;
+}
+.initial_instructions_container {
+  width: 70%;
+  text-align: center;
+  margin: auto;
+}
+
+/* dashboard start*/
+.dashboard_container {
+  display: flex;
+  margin: 5rem auto;
+  width: min-content;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: center;
+}
+.dashboard_item {
+  width: 28vmin;
+  height: 32vmin;
+  border: 2px solid var(--clr-primary);
+  margin: 1rem;
+  cursor: pointer;
+  box-sizing: content-box;
+  padding: 0.5rem;
+  font-size: 1.2;
+  position: relative;
+}
+.dashboard_item.go_to_profile {
+  text-align: start;
+  background: center / cover no-repeat url(./assets/user_edit.svg);
+}
+.dashboard_item.go_to_diary {
+  text-align: end;
+  background: center / cover no-repeat url(./assets/diary.svg);
+}
+
+/* dashboard end*/
+
+/* avatarInfo start */
+.avatar_container {
+  width: 50vh;
+  height: 30vh;
+  margin: 3rem auto;
+  font-size: 2rem;
+  text-align: center;
+}
+.avatar_container img {
+  width: 50%;
+  height: 85%;
+  margin: 1rem auto;
+  margin-bottom: 4rem;
+}
+/* avatarInfo end */
+
+/* profile start */
+.update_profile_container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.user_data_field {
+  display: flex;
+  flex-direction: column;
+  min-width: 50vw;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 0.5em;
+}
+.user_data_field_item {
+  margin: 0 2rem;
+}
+
+/* profile end */
+
+/* diary start */
+.diary_container {
+  width: 45vw;
+  min-width: 170px;
+  max-width: 300px;
+  height: 70vh;
+  min-height: 300px;
+  margin: auto;
+  margin-left: 50%;
+  margin-top: 5rem;
+  position: relative;
+  perspective: 1400px;
+  transition: 2s ease;
+  --trans-dur: 1s;
+}
+
+.page {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  transform-style: preserve-3d;
+  background-color: var(--clr-page);
+  transition: var(--trans-dur) ease transform;
+  transform-origin: left;
+  overflow-x: hidden;
+  overflow-y: visible;
+  padding: 1rem;
+  padding-bottom: 0;
+  border: 1px solid;
+  z-index: 1;
+}
+.not_rotated {
+  backface-visibility: hidden;
+}
+.is_rotated {
+  transform: rotateY(180deg);
+}
+
+.rotation {
+  transform: rotateY(-180deg);
+}
+
+.rotation_withZ {
+  transform: rotateY(180deg);
+  z-index: 100;
+}
+.starting_state {
+  transform: translateX(-50%);
+  z-index: 10;
+}
+.opening_page {
+  transition: 1.5s 1s ease;
+  background-color: var(--clr-text-light);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.diary_title {
+  color: var(--clr-white);
+  text-align: center;
+  transition: 1.5s ease color;
+  margin-top: 10%;
+  font-size: 2rem;
+}
+
+.page > div {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+[data-pageindex]:not([data-pageindex="1"]):not([data-pageindex="2"]):not([data-pageindex="3"]) {
+  display: none;
+}
+.page form {
+  flex: 1;
+}
+textarea {
+  font-size: 2rem;
+  font-family: "Satisfy", cursive;
+  height: 95%;
+  width: 100%;
+  resize: none;
+  resize: vertical;
+}
+.page_index {
+  margin-bottom: 0.5em;
+}
+.page_btn {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 0.4em;
+  transition: 0.2s ease opacity;
+}
+.page_btn:hover {
+  opacity: 0.6;
+}
+.btn_go_right,
+.page_index_right {
+  align-self: flex-end;
+}
+.btn_go_left,
+.page_index_left {
+  align-self: flex-start;
+}
+
+.done_btn {
+  font-family: "Satisfy", cursive;
+  font-size: 1.5rem;
+}
+.diary_footer_container {
+  margin-top: 1rem;
+}
+.btn_diary_footer {
+  visibility: hidden;
+  margin: 0.7em 1rem 0.5em;
+  font-size: 1.5rem;
+}
+
+/* diary end */
+
+/*datepicker  start */
+.date_picker_container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 2px solid;
+  background: linear-gradient(to bottom, #9bc2ff, #bef566 90%);
+}
+.calender_wrapper {
+  display: flex;
+  overflow-y: hidden;
+  height: 290px;
+  margin: auto;
+  width: 290px;
+  scroll-behavior: smooth;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.calender_wrapper::-webkit-scrollbar {
+  display: none;
+}
+.calender_container {
+  padding: 12px;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(7, 30px);
+  gap: 10px;
+  justify-items: center;
+}
+
+.month_name {
+  grid-column: 1 / -1;
+  font-size: 2rem;
+}
+.day_name {
+  font-size: 1.4rem;
+}
+.date_cell {
+  font-size: 1.4rem;
+}
+.month_picker_container {
+  margin: auto;
+  width: 290px;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  row-gap: 0.2em;
+  text-align: center;
+  font-size: 1.4rem;
+  margin: 0.25em 0 0.5em 0;
+}
+.date_cancel_btn {
+  border-radius: 5px;
+  margin-bottom: 5px;
+  background-color: #9bc2ff;
+}
+.date_cell,
+.month_picker_cell {
+  width: 100%;
+  text-align: center;
+  cursor: pointer;
+  padding: 0.3em 0;
+  transition: 0.2s ease;
+}
+.date_cell:not(.day_name):hover,
+.date_cell:not(.day_name):focus,
+.month_picker_cell:hover,
+.month_picker_cell:focus {
+  background-color: var(--clr-white);
+}
+/* end datepicker */

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1075" height="454" data-name="Layer 1">
+  <defs/>
+  <rect width="100%" height="100%" fill="none" class="selected"/>
+  <g class="currentLayer">
+    <circle cx="524.4" cy="287.9" r="158.8" fill="#00bfa6" opacity=".3"/>
+    <path fill="#00bfa6" d="M459 86L354 214l156 185 104-123L459 86z"/>
+    <path d="M459 86L354 214l156 185 104-123L459 86z" opacity=".1"/>
+    <path fill="#f2f2f2" d="M358 216a53 53 0 018-12l97-98s34-6 41 11L380 218z"/>
+    <path fill="#00bfa6" d="M353 213l144 220s14 10 28 5l147-100-156-237-141 110z"/>
+    <path fill="#3f3d56" d="M408 201l90-65 1 2-90 64zm-3 25l2-1 118 179-2 1zm132 183l96-70 2 1-96 71zm-24-269l2-1 123 176-2 1zm-147 67l111-103 1 1-111 103zm4 1l117-103 1 1-117 103zm3 0l121-101 1 1-121 101z"/>
+  </g>
+  <rect width="100%" height="100%" fill="none"/>
+</svg>
